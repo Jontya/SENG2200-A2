@@ -1,22 +1,28 @@
-public class Circle extends PlanarShape{
-    Point points[];
+import java.lang.Math;
 
-    public Circle(String data){
+public class Circle extends PlanarShape{
+    private Point centrePoint;
+    private double radius;
+
+
+    public Circle(){
 
     }
 
     public String toString(){
-        String out = "";
-        return out;
+        return "CIRC=[" + centrePoint.toString() + " " + String.format("%3.2f", radius) + "]: " + String.format("%5.2f", area());
     }
 
     public double area(){
-        double area = 0;
-        return area;
+        return Math.PI * Math.pow(radius, 2);
     }
 
     public double originDistance(){
-        double distance = 0;
-        return distance;
+        return centrePoint.distanceFromOrigin() - radius;
+    }
+
+    public void initShape(double[] values){
+        centrePoint = new Point(values[0], values[1])
+        radius = values[2];
     }
 }
