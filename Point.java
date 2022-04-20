@@ -14,7 +14,7 @@ public class Point {
     }
 
     public String toString(){ // Clean string for a point "(x, y)"
-        return "(" + String.format("%4.2f", x) + " , " + String.format("%4.2f", y) + ")" ;
+        return "(" + String.format("%4.2f", x) + " , " + String.format("%4.2f", y) + ")";
     }
 
     public double getx(){
