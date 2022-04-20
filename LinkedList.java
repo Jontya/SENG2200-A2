@@ -4,9 +4,9 @@ import java.util.NoSuchElementException;
 
 public class LinkedList<T extends PlanarShape> implements Iterable<T>{
     
-    private int count;
-    private int modCount;
-    private Node<T> sentinel;    
+    protected int count;
+    protected int modCount;
+    protected Node<T> sentinel;    
 
     public LinkedList(){
         sentinel = new Node<T>();
@@ -61,16 +61,6 @@ public class LinkedList<T extends PlanarShape> implements Iterable<T>{
         count--;
         modCount++;
         return data;
-    }
-
-    public String print(){
-        String out = "";
-        for(int i = 0; i < count; i++){
-            T data = remove();
-            out += data.toString() + "\n";
-            append(data);
-        }
-        return out;
     }
 
     @Override
