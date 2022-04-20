@@ -5,10 +5,12 @@ public class Circle extends PlanarShape{
     private double radius;
 
 
-    public Circle(){
-
+    public Circle(double[] values){
+        centrePoint = new Point(values[0], values[1]);
+        radius = values[2];
     }
 
+    @Override
     public String toString(){
         return "CIRC=[" + centrePoint.toString() + " " + String.format("%3.2f", radius) + "]: " + String.format("%5.2f", area());
     }
@@ -19,10 +21,5 @@ public class Circle extends PlanarShape{
 
     public double originDistance(){
         return centrePoint.distanceFromOrigin() - radius;
-    }
-
-    public void initShape(double[] values){
-        centrePoint = new Point(values[0], values[1])
-        radius = values[2];
     }
 }
