@@ -20,7 +20,7 @@ public class A2 {
         
     }
 
-    public void readFile() throws Exception{
+    private void readFile() throws Exception{
         File file = new File(filename);
         if(!file.exists()){
             System.out.println("File Not Found");
@@ -61,12 +61,34 @@ public class A2 {
             }
         }
 
+        addToSortedList();
+        System.out.println(outputUnsortedList());
+        System.out.println(outputSortedList());
+
+    }
+
+    private void addToSortedList(){
         Iterator<PlanarShape> iterator = unsortedList.iterator();
         while(iterator.hasNext()){
             sortedList.insertInOrder(iterator.next());
         }
+    }
 
-        System.out.println("Unsorted list\n" + unsortedList.print());
-        System.out.println("Sorted list\n" + sortedList.print());
+    private String outputUnsortedList(){
+        Iterator<PlanarShape> iterator = unsortedList.iterator();
+        String out = "Unsorted list\n";
+        while(iterator.hasNext()){
+            out += (iterator.next().toString() + "\n");
+        }
+        return out;
+    }
+
+    private String outputSortedList(){
+        Iterator<PlanarShape> iterator = sortedList.iterator();
+        String out = "Sorted list\n";
+        while(iterator.hasNext()){
+            out += (iterator.next().toString() + "\n");
+        }
+        return out;
     }
 }
