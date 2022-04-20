@@ -6,22 +6,18 @@ public class SemiCircle extends PlanarShape{
     private Point leftOfBase;
     private Point rightOfBase;
 
-    public SemiCircle(String data){
-
-    }
-
-    public void setSidePoints(){
-        leftOfBase.setx(centreBase.getx() - Math.abs(centreBase.gety() - perpendicularBase.gety()));
-        leftOfBase.sety(centreBase.gety() + Math.abs(centreBase.getx() - perpendicularBase.gety()));
-
-        rightOfBase.setx(centreBase.getx() + Math.abs(centreBase.gety() - perpendicularBase.gety()));
-        rightOfBase.sety(centreBase.gety() - Math.abs(centreBase.getx() - perpendicularBase.getx()));
+    public SemiCircle(double[] values){
+        centreBase = new Point(values[0], values[1]);
+        perpendicularBase = new Point(values[2], values[3]);
+        leftOfBase = new Point(centreBase.getx() - Math.abs(centreBase.gety() - perpendicularBase.gety()), centreBase.gety() + Math.abs(centreBase.getx() - perpendicularBase.gety()));
+        rightOfBase = new Point(centreBase.getx() + Math.abs(centreBase.gety() - perpendicularBase.gety()), centreBase.gety() - Math.abs(centreBase.getx() - perpendicularBase.getx()));
     }
 
     public double getRadius(){
-        return Math.sqrt(Math.pow((perpendicularBase.getx() - centreBase.getx()), 2) + Math.pow((perpendicularBase.gety() - centreBase.gety()), 2))
+        return Math.sqrt(Math.pow((perpendicularBase.getx() - centreBase.getx()), 2) + Math.pow((perpendicularBase.gety() - centreBase.gety()), 2));
     }
 
+    @Override
     public String toString(){
         return "SEMI=[" + centreBase.toString() + perpendicularBase.toString() + "]: " +  String.format("%5.2f", area());
     }
