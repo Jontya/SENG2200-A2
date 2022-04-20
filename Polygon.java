@@ -1,13 +1,17 @@
-
-
 import java.lang.Math;
 
 public class Polygon extends PlanarShape{
-    private Point points[];
-    private double sides;
+    private Point[] points;
+    private int sides;
 
-    public Polygon(){
-        sides = 0;
+    public Polygon(double[] values){
+        sides = (int)values[0];
+        points = new Point[sides];
+        int x = 1;
+        for(int i = 0; i < sides; i++){
+            points[i] = new Point(values[x], values[x+1]);
+            x += 2;
+        }
     }
 
     public String toString(){
@@ -15,7 +19,7 @@ public class Polygon extends PlanarShape{
         for(int i = 0; i < sides; i++){
             output = output + points[i].toString();
         }
-        output = output + "]: " + String.format("%5.2f", polygonArea()) + "\n";
+        output = output + "]: " + String.format("%5.2f", area());
         return output;
     }
 
@@ -42,15 +46,6 @@ public class Polygon extends PlanarShape{
             }
         }
         return distance;
-    }
-
-    public void initShape(double[] values){
-        sides = values[0];
-        int x = 1;
-        for(int i = 1; i < sides; i++){
-            points[i-1] = new Point(values[x], values[x+1]);
-            x += 2;
-        }
     }
 
 }
