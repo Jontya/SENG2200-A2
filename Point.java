@@ -1,9 +1,22 @@
+//---------------------------------------------------------------------------------------------------
+/** SENG2200 A2
+*** Jonty Atkinson (C3391110)
+*** 19/04/22
+***
+*** Point:
+*** Class to store a pair of points (x, y). Provides methods to return a clean string of the point 
+*** and calculate the points distance from the origin (0, 0)
+**/
+//---------------------------------------------------------------------------------------------------
+
 import java.lang.Math;
+
 public class Point {
 
     private double x;
     private double y;
 
+    // Default Constructor
     public Point(double _x, double _y){
         x = _x;
         y = _y;
