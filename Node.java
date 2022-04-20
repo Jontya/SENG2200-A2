@@ -1,8 +1,20 @@
+//---------------------------------------------------------------------------------------------------
+/** SENG2200 A2
+*** Jonty Atkinson (C3391110)
+*** 20/04/22
+***
+*** Node:
+*** Node class to store shapes of type PlanarShape, implements methods to get and set data / links
+**/
+//---------------------------------------------------------------------------------------------------
+
 public class Node<T extends PlanarShape>{
+
     private T data;
     private Node<T> next;
     private Node<T> prev;
 
+    // Default Constructor
     public Node(){
         data = null;
     }
