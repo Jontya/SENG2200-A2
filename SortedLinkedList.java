@@ -24,11 +24,11 @@ public class SortedLinkedList<T extends PlanarShape> extends LinkedList<T>{
 
     // Overloaded to throw an exception
     public void prepend() throws Exception{
-        throw new Exception("Invalid Method Of Sorted Linked List");
+        throw new UnsupportedOperationException("Invalid Method Of Sorted Linked List");
     }
 
     public void append() throws Exception{
-        throw new Exception("Invalid Method Of Sorted Linked List");
+        throw new UnsupportedOperationException("Invalid Method Of Sorted Linked List");
     }
     
     // Overridden to direct all data into insertInOrder()
