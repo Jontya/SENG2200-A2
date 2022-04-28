@@ -41,7 +41,7 @@ public abstract class PlanarShape implements Comparable<PlanarShape>{
             return -1; // Returns -1 (False - is not greater)
         }
         else if(percentDifference <= 0.05){ // If the percent difference is <= 0.05
-            if(this.originDistance() < shape.originDistance()){ // If the new shapes distance from (0,0) < the target shapes distance from (0,0)
+            if(this.originDistance() > shape.originDistance()){ // If the new shapes distance from (0,0) < the target shapes distance from (0,0)
                 return -1; // Returns -1 (False - is not greater)
             }
         }
