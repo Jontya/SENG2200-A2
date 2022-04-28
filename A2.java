@@ -59,8 +59,7 @@ public class A2 {
                     shapeData[i] = Double.parseDouble(arr[i]); // the double array is updated
                 }
 
-                ShapeFactory sf = new ShapeFactory(); // Instance of ShapeFactory
-                unsortedList.append(sf.shapeFactory(shapeToken, shapeData)); // Adds to the list with the shape determined in the shape factory
+                unsortedList.append(shapeFactory(shapeToken, shapeData)); // Adds to the list with the shape determined in the shape factory
               
                 shapeToken = temp.charAt(0); // Updates the shape token
                 fileData = ""; // Resets the data string
@@ -75,6 +74,24 @@ public class A2 {
         addToSortedList(); // Adds to sorted list and prints both lists
         System.out.print(outputUnsortedList());
         System.out.print(outputSortedList());
+    }
+
+    private PlanarShape shapeFactory(char shapeSignature, double[] shapePoints) throws Exception{
+        PlanarShape shape;
+        switch(shapeSignature){
+            case 'P':
+                shape = new Polygon(shapePoints);
+                break;
+            case 'C':
+                shape = new Circle(shapePoints);
+                break;
+            case'S':
+                shape = new SemiCircle(shapePoints);
+                break;
+            default:
+                throw new Exception("Error: Shape Not Found");
+        }
+        return shape;
     }
 
     private void addToSortedList(){
